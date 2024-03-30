@@ -5,17 +5,16 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.wzj.mvvm_test.User;
+import com.wzj.mvvm_test.model.BiYingResponse;
+import com.wzj.mvvm_test.repository.MainRepository;
 
 import java.io.Closeable;
 
 public class MainViewModel extends ViewModel {
 
-    public MutableLiveData<User> user;
+    public MutableLiveData<BiYingResponse> biying;
 
-    public MutableLiveData<User> getUser() {
-        if (user == null) {
-            user = new MutableLiveData<>();
-        }
-        return user;
+    public void getBiying() {
+        biying = new MainRepository().getBiYing();
     }
 }

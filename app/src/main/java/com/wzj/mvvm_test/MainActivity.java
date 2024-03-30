@@ -16,8 +16,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.wzj.mvvm_test.databinding.ActivityMainBinding;
 import com.wzj.mvvm_test.viewmodels.MainViewModel;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
 
     private MainViewModel mainViewModel;
     private com.wzj.mvvm_test.databinding.ActivityMainBinding dataBinding;
@@ -27,30 +28,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //创建ViewModel对象
-        mainViewModel = new MainViewModel();
-        //创建实体类
-        User admin = new User("admin", "123456");
-        //给ViewModel设置初始值
-        mainViewModel.getUser().setValue(admin);
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        //网络请求
+        mainViewModel.getBiying();
+        //返回数据是更新ViewModel,ViewModel更新则xml更新
+        mainViewModel.biying.observe(this,biYingResponse -> {
+            dataBinding.setViewModel(mainViewModel);
+        });
 
-        //获取观察对象
-        MutableLiveData<User> user1 = mainViewModel.getUser();
 
-        //将ViewModel设置到xml中 也就是 给 xml中的data标签赋值
-       user1.observe(this,user -> {
-           dataBinding.setViewModel(mainViewModel);
-       });
-
-        dataBinding.btnLogin.setOnClickListener(v->{
-          if(mainViewModel.user.getValue().getAccount().isEmpty()){
-              Toast.makeText(this, "请输入账号", Toast.LENGTH_SHORT).show();
-              return;
-          }
-          if(mainViewModel.user.getValue().getPwd().isEmpty()){
-              Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
-              return;
-          }
-          Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-      });
     }
 }
