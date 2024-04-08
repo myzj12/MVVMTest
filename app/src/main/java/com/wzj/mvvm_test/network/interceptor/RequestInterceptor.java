@@ -1,7 +1,7 @@
 package com.wzj.mvvm_test.network.interceptor;
 
 import com.wzj.mvvm_test.network.INetworkRequiredInfo;
-import com.wzj.mvvm_test.network.utils.DateUtil;
+import com.wzj.mvvm_test.utils.DateUtil;
 
 import java.io.IOException;
 

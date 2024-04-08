@@ -7,9 +7,11 @@ import androidx.lifecycle.MutableLiveData;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.wzj.mvvm_test.databinding.ActivityLoginBinding;
+import com.wzj.mvvm_test.utils.MVUtils;
 import com.wzj.mvvm_test.viewmodels.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
@@ -26,6 +28,13 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new LoginViewModel();
         User user = new User("admin", "12345");
         loginViewModel.getUser().setValue(user);
+
+        Log.d("TAG", "onCreate: 存");
+        MVUtils.put("age", 24);
+
+        int age = MVUtils.getInt("age", 0);
+        Log.d("TAG", "onCreate:取" + age);
+
 
         //获取观察对象
         MutableLiveData<User> user1 = loginViewModel.getUser();

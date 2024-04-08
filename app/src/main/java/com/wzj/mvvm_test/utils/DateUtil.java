@@ -1,4 +1,4 @@
-package com.wzj.mvvm_test.network.utils;
+package com.wzj.mvvm_test.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -328,5 +328,21 @@ public class DateUtil {
         //日期回滚一天，也就是最后一天
         calendar.roll(Calendar.DATE, -1);
         return calendar.get(Calendar.DATE);
+    }
+
+    /**
+     * 计算并返回明天凌晨0点0分0秒的毫秒时间戳
+     * @return
+     */
+    public static long getMillisNextEarlyMorning() {
+        Calendar cal = Calendar.getInstance();
+        //日期加1
+        cal.add(Calendar.DAY_OF_YEAR, 1);
+        //时间设定到0点整
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTimeInMillis();
     }
 }
