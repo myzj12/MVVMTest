@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 网络API
  * OkHttp做底层的网络请求访问
  * Retrofit做上层网络请求接口的封装,同时将需要的数据解析成实体,同时Retrofit还有对RxJava的支持,这样就可以在请求的时候做线程切换,切换到子线程,
- *  在数据返回的时候切换到主线程。避免了在主线程中进行耗时操作的问题。
+ * 在数据返回的时候切换到主线程。避免了在主线程中进行耗时操作的问题。
  */
 public class NetworkApi {
 
@@ -36,7 +36,7 @@ public class NetworkApi {
     /**
      * Api访问地址
      */
-    private static final String BASE_URL = "https://cn.bing.com";
+    private static String BASE_URL = null;
     private static OkHttpClient okHttpClient;
     private static final HashMap<String, Retrofit> retrofitHashMap = new HashMap<>();
 
@@ -50,7 +50,9 @@ public class NetworkApi {
     /**
      * 创建serviceClass的实例
      */
-    public static <T> T createServer(Class<T> serviceClass) {
+    public static <T> T createServer(Class<T> serviceClass, int type) {
+        //设置Url类型
+        setUrlType(type);
         return getRetrofit(serviceClass).create(serviceClass);
     }
 
@@ -152,5 +154,19 @@ public class NetworkApi {
             }
             return response;
         };
+    }
+
+    private static void setUrlType(int type) {
+        switch (type) {
+            case 0:
+                //必应
+                BASE_URL = "https://cn.bing.com";
+            case 1:
+                //热门壁纸
+                BASE_URL = "http://service.picasso.adesk.com";
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -27,8 +27,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     //启用DataBinding
-    buildFeatures {
+    buildFeatures{
         dataBinding true
+    }
+    //启用ViewBinding
+    buildFeatures(){
+        viewBinding true
     }
 
 }
@@ -63,6 +67,8 @@ dependencies {
     implementation 'androidx.room:room-rxjava2:2.3.0'
     //腾讯MMKV
     implementation 'com.tencent:mmkv:1.2.11'
+    //RecyclerView的好搭档
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 
 
 

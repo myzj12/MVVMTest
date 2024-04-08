@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.wzj.mvvm_test.BaseApplication;
 import com.wzj.mvvm_test.network.utils.KLog;
 
@@ -19,7 +20,7 @@ import kotlin.math.UMathKt;
 /**
  * 自定义View
  */
-public class CustomImageView extends AppCompatImageView {
+public class CustomImageView extends ShapeableImageView {
     public CustomImageView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
@@ -40,6 +41,7 @@ public class CustomImageView extends AppCompatImageView {
      * @param imageView 图片视图
      * @param url  图片地址
      */
+    @BindingAdapter(value = {"networkUrl"},requireAll = false)
     public static void setNetworkUrl(ImageView imageView,String url){
         Glide.with(BaseApplication.getContext()).load(url).into(imageView);
     }
