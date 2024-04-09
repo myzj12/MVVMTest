@@ -16,19 +16,29 @@
         android:theme="@style/Theme.MVVMTest"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.PictureViewActivity"
-            android:theme="@style/ImageTheme"
+            android:name=".ui.activity.HomeActivity"
+
             android:exported="false" />
         <activity
-            android:name=".ui.activity.LoginActivity"
-            android:exported="true">
+            android:name=".ui.activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainActivity" android:theme="@style/MainTheme"></activity>
+        <activity
+            android:name=".ui.activity.PictureViewActivity"
+            android:exported="false"
+            android:theme="@style/ImageTheme" />
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:theme="@style/MainTheme" />
     </application>
 
 </manifest>

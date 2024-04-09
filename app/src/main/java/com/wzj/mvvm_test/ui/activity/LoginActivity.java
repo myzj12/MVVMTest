@@ -11,10 +11,11 @@ import android.widget.Toast;
 
 import com.wzj.mvvm_test.R;
 import com.wzj.mvvm_test.model.User;
+import com.wzj.mvvm_test.utils.Constant;
 import com.wzj.mvvm_test.utils.MVUtils;
 import com.wzj.mvvm_test.viewmodels.LoginViewModel;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private com.wzj.mvvm_test.databinding.ActivityLoginBinding dataBinding;
     private LoginViewModel loginViewModel;
@@ -29,13 +30,6 @@ public class LoginActivity extends AppCompatActivity {
         User user = new User("admin", "12345");
         loginViewModel.getUser().setValue(user);
 
-        Log.d("TAG", "onCreate: 存");
-        MVUtils.put("age", 24);
-
-        int age = MVUtils.getInt("age", 0);
-        Log.d("TAG", "onCreate:取" + age);
-
-
         //获取观察对象
         MutableLiveData<User> user1 = loginViewModel.getUser();
         user1.observe(this, user2 -> {
@@ -44,15 +38,17 @@ public class LoginActivity extends AppCompatActivity {
 
         dataBinding.btnLogin.setOnClickListener(v -> {
             if (loginViewModel.user.getValue().getAccount().isEmpty()) {
-                Toast.makeText(this, "请输入账号", Toast.LENGTH_SHORT).show();
+                showMsg("请输入账号");
                 return;
             }
             if (loginViewModel.user.getValue().getPwd().isEmpty()) {
-                Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+                showMsg("请输入密码");
                 return;
             }
-            Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            //记录已经登录过
+            MVUtils.put(Constant.IS_LOGIN,true);
+            showMsg("登录成功");
+            jumpActivity(MainActivity.class);
         });
 
     }

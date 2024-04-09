@@ -43,6 +43,7 @@
 
                 <com.wzj.mvvm_test.view.CustomImageView
                     android:id="@+id/image"
+                    android:background="@drawable/top_bg"
                     biyingUrl="@{viewModel.biying.images.get(0).url}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -77,6 +78,7 @@
         是否允许视图在滚动到边缘时出现额外的滚动效果（如回弹效果）。设置为"never"表示不允许。
         -->
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -90,5 +92,18 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp" />
         </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fab_home"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="20dp"
+            android:background="@color/purple_500"
+            android:onClick="toHome"
+            android:src="@mipmap/ic_home"
+            android:backgroundTint="@color/purple_500"
+            app:fabSize="auto"
+            tools:ignore="UsingOnClickInXml"
+            android:contentDescription="主页"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

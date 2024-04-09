@@ -1,18 +1,20 @@
 package com.wzj.mvvm_test.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.wzj.mvvm_test.R;
 import com.wzj.mvvm_test.ui.adapter.WallPaperAdapter;
 import com.wzj.mvvm_test.viewmodels.MainViewModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private MainViewModel mainViewModel;
     private com.wzj.mvvm_test.databinding.ActivityMainBinding dataBinding;
@@ -64,5 +66,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //设置滚动监听器,
+        dataBinding.scrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scroolY, oldScrollX, oldScrollY) -> {
+            if(scroolY>oldScrollY){
+                //上滑
+                dataBinding.fabHome.hide();
+            }else{
+                //下滑
+                dataBinding.fabHome.show();
+            }
+        });
+
+
+    }
+    public void toHome(View view){
+        jumpActivity(HomeActivity.class);
     }
 }
