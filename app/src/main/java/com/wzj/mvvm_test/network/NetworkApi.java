@@ -166,6 +166,13 @@ public class NetworkApi {
                 //热门壁纸
                 BASE_URL = "http://service.picasso.adesk.com";
                 break;
+            case 2:
+                //聚合API,请求新闻列表
+                BASE_URL ="http://v.juhe.cn";
+                break;
+            case 3:
+                //聚合API,请求热门视频
+                BASE_URL="http://apis.juhe.cn";
             default:
                 break;
         }

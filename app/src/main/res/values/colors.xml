@@ -13,4 +13,5 @@
     <color name="search_gray">#EAEAEA</color><!--搜索框灰色-->
     <color name="translucent">#90000000</color>
     <color name="green">#2EAD4D</color><!--要想代码过得去，主题就要带点绿-->
+    <color name="line">#EEEEEE</color>
 </resources>

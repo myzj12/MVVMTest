@@ -10,6 +10,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CustomDisposable {
+    //统一管理
     private static final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     //获取到的数据在主线程处理

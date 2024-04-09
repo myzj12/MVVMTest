@@ -18,4 +18,21 @@ public class Constant {
 
     //是否登录过
     public static final String IS_LOGIN = "isLogin";
+
+    /**
+     * 今日是否请求了聚合新闻数据
+     */
+    public static final String IS_TODAY_REQUEST_NEWS="isTodayRequestNews";
+    /**
+     * 今日请求聚合新闻的时间戳
+     */
+    public static final String REQUEST_TIMESTAMP_NEWS="newsRequestTimestamp";
+    /**
+     * 今日是否请求了聚合视频数据
+     */
+    public static final String IS_TODAY_REQUEST_VIDEO = "isTodayRequestVideo";
+    /**
+     * 今日请求聚合视频数据的时间戳
+     */
+    public static final String REQUEST_TIMESTAMP_VIDEO = "videoRequestTimestamp";
 }

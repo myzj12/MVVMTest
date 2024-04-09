@@ -38,5 +38,9 @@
 <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     <item name="android:statusBarColor" tools:targetApi="lollipop">#00FFFFFF</item><!--设置状态栏的颜色-->
 </style>
+    <style name="roundedImageStyle_6">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">6dp</item>
+    </style>
 
 </resources>

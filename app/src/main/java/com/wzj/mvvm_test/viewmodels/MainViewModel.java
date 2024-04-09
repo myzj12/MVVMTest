@@ -9,16 +9,23 @@ import com.wzj.mvvm_test.repository.MainRepository;
 
 import java.io.Closeable;
 
-public class MainViewModel extends ViewModel {
+public class MainViewModel extends BaseViewModel {
 
     public MutableLiveData<BiYingResponse> biying;
     public MutableLiveData<WallPaperResponse> wallPaper;
+//    private final MainRepository mainRepository;
+
+//    MainViewModel(MainRepository mainRepository) {
+//        this.mainRepository = mainRepository;
+//    }
 
     public void getWallPaper() {
         wallPaper = new MainRepository().getWallPaper();
+//        failed = mainRepository.failed;
     }
 
     public void getBiying() {
         biying = new MainRepository().getBiYing();
+//        failed = mainRepository.failed;
     }
 }

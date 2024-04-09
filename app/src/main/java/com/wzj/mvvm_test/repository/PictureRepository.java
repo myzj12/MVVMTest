@@ -12,6 +12,7 @@ import io.reactivex.Flowable;
 
 public class PictureRepository {
     private final MutableLiveData<List<WallPaper>> wallPaper = new MutableLiveData<>();
+    public final MutableLiveData<String> failed = new MutableLiveData<>();
 
     public MutableLiveData<List<WallPaper>> getWallPaper(){
         Flowable<List<WallPaper>> listFlowable = BaseApplication.getDb().wallPaperDao().getAll();

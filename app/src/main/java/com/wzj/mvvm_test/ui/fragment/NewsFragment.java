@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 
 import com.wzj.mvvm_test.R;
 import com.wzj.mvvm_test.databinding.FragmentNewsBinding;
+import com.wzj.mvvm_test.ui.adapter.NewsAdapter;
 import com.wzj.mvvm_test.viewmodels.NewsViewModel;
 
 public class NewsFragment extends BaseFragment {
@@ -38,6 +40,12 @@ public class NewsFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(NewsViewModel.class);
+        mViewModel.getNews();
+        binding.rv.setLayoutManager(new LinearLayoutManager(context));
+        //数据刷新
+        mViewModel.news.observe(context, newsResponse ->
+            binding.rv.setAdapter(new NewsAdapter(newsResponse.getResult().getData())));
+            mViewModel.failed.observe(context, this::showMsg);
     }
 
 }
