@@ -1,5 +1,10 @@
 package com.wzj.mvvm_test.ui.adapter;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -21,7 +26,18 @@ public class VideoAdapter extends BaseQuickAdapter<VideoResponse.ResultBean, Bas
         ItemVideoBinding binding = bindingHolder.getDataBinding();
         if(binding!=null){
             binding.setVideo(resultBean);
+            binding.setOnClick(new ClickBinding());
             binding.executePendingBindings();
+        }
+    }
+
+    public static class ClickBinding{
+        public void itemClick(VideoResponse.ResultBean resultBean, View view){
+            if(resultBean.getShare_url()!=null){
+                view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(resultBean.getShare_url())));
+            }else {
+                Toast.makeText(view.getContext(), "视频地址为空", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

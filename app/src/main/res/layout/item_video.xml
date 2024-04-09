@@ -8,10 +8,15 @@
         <variable
             name="video"
             type="com.wzj.mvvm_test.model.VideoResponse.ResultBean" />
+        <variable
+            name="onClick"
+            type="com.wzj.mvvm_test.ui.adapter.VideoAdapter.ClickBinding" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/detail"
+        android:onClick="@{()->onClick.itemClick(video,detail)}"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:paddingStart="12dp"

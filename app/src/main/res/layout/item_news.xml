@@ -8,6 +8,9 @@
         <variable
             name="news"
             type="com.wzj.mvvm_test.model.NewsResponse.ResultBean.DataBean" />
+        <variable
+            name="onClick"
+            type="com.wzj.mvvm_test.ui.adapter.NewsAdapter.ClickBinding" />
     </data>
 
     <RelativeLayout
@@ -16,6 +19,8 @@
         android:background="@color/white"
         android:paddingStart="12dp"
         android:paddingTop="12dp"
+        android:id="@+id/detail"
+        android:onClick="@{()->onClick.itemClick(news,detail)}"
         android:paddingEnd="12dp">
 
         <TextView
