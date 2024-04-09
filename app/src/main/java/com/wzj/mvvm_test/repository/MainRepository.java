@@ -133,18 +133,14 @@ public class MainRepository {
         });
     }
 
-    @SuppressLint("CheckResult")
     public MutableLiveData<BiYingResponse> getBiYing() {
-        //今日此接口是否已经请求
+        //今日此接口是否已请求
         if (MVUtils.getBoolean(Constant.IS_TODAY_REQUEST)) {
-            //判断当前时间 例如通过:DateUtil.getTimestamp()得到 当前时间为:2024-04-08 23:48:04
-            //是否小于等于 MVUtils.getLong(Constant.REQUEST_TIMESTAMP)) 例如 2024-04-08 12:00:00
             if (DateUtil.getTimestamp() <= MVUtils.getLong(Constant.REQUEST_TIMESTAMP)) {
-                Log.d(TAG, "当前时间为:" + DateUtil.getDateTime() + "    最晚有效时间戳为:" + MVUtils.getLong(Constant.REQUEST_TIMESTAMP));
                 //当前时间未超过次日0点,从本地获取
                 getLocalDB();
             } else {
-                //大于则数据需要更新,从网络获取
+                //大于则数据要更新,从网络获取
                 requestNetworkApi();
             }
         } else {

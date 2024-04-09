@@ -1,16 +1,13 @@
-package com.wzj.mvvm_test;
+package com.wzj.mvvm_test.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.wzj.mvvm_test.adapter.ImageAdapter;
+import com.wzj.mvvm_test.R;
+import com.wzj.mvvm_test.ui.adapter.ImageAdapter;
 import com.wzj.mvvm_test.databinding.ActivityPictureViewBinding;
 import com.wzj.mvvm_test.viewmodels.PictureViewModel;
 

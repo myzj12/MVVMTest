@@ -1,4 +1,4 @@
-package com.wzj.mvvm_test.adapter;
+package com.wzj.mvvm_test.ui.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.wzj.mvvm_test.PictureViewActivity;
+import com.wzj.mvvm_test.ui.activity.PictureViewActivity;
 import com.wzj.mvvm_test.R;
 import com.wzj.mvvm_test.databinding.ItemWallPaperBinding;
 import com.wzj.mvvm_test.model.WallPaperResponse;

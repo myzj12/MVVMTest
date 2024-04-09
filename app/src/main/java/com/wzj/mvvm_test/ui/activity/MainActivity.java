@@ -1,25 +1,16 @@
-package com.wzj.mvvm_test;
+package com.wzj.mvvm_test.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.textfield.TextInputEditText;
-import com.wzj.mvvm_test.adapter.WallPaperAdapter;
-import com.wzj.mvvm_test.databinding.ActivityMainBinding;
+import com.wzj.mvvm_test.R;
+import com.wzj.mvvm_test.ui.adapter.WallPaperAdapter;
 import com.wzj.mvvm_test.viewmodels.MainViewModel;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,7 +1,10 @@
-package com.wzj.mvvm_test;
+package com.wzj.mvvm_test.model;
+
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+
+import com.wzj.mvvm_test.BR;
 
 public class User extends BaseObservable {
     private String account;

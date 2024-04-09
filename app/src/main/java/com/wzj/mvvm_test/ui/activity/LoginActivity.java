@@ -1,8 +1,7 @@
-package com.wzj.mvvm_test;
+package com.wzj.mvvm_test.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.MutableLiveData;
 
 import android.content.Intent;
@@ -10,7 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.wzj.mvvm_test.databinding.ActivityLoginBinding;
+import com.wzj.mvvm_test.R;
+import com.wzj.mvvm_test.model.User;
 import com.wzj.mvvm_test.utils.MVUtils;
 import com.wzj.mvvm_test.viewmodels.LoginViewModel;
 

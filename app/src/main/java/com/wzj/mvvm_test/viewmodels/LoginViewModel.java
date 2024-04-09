@@ -3,7 +3,7 @@ package com.wzj.mvvm_test.viewmodels;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.wzj.mvvm_test.User;
+import com.wzj.mvvm_test.model.User;
 
 public class LoginViewModel extends ViewModel {
     public MutableLiveData<User> user;

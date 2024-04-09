@@ -161,6 +161,7 @@ public class NetworkApi {
             case 0:
                 //必应
                 BASE_URL = "https://cn.bing.com";
+                break;
             case 1:
                 //热门壁纸
                 BASE_URL = "http://service.picasso.adesk.com";

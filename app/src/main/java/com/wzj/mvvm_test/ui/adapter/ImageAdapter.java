@@ -1,4 +1,4 @@
-package com.wzj.mvvm_test.adapter;
+package com.wzj.mvvm_test.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

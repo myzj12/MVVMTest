@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".MainActivity">
+        tools:context=".ui.activity.MainActivity">
 
         <!-- 可以包含多个子视图的可滚动顶部栏-->
         <com.google.android.material.appbar.AppBarLayout
